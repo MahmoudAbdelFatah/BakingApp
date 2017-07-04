@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/cardView1"
+    android:background="@color/cardview_light_background"
+    android:layout_margin="4dp"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    >
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ingredient_name"
+            android:lines="1"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:text="ingredient"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/measure"
+            android:lines="1"
+            android:textColor="@color/maroon"
+            android:textSize="15sp"
+            android:layout_marginLeft="5dp"
+            android:text="measure: "
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/quantity"
+            android:lines="1"
+            android:textColor="@color/maroon"
+            android:textSize="15sp"
+            android:layout_marginLeft="5dp"
+            android:text="quantity: "
+            />
+    </LinearLayout>
+</android.support.v7.widget.CardView>
