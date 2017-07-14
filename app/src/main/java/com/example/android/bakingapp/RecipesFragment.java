@@ -68,7 +68,7 @@ public class RecipesFragment extends Fragment {
     public void onStart() {
         super.onStart();
         Log.v("start", "hello from start");
-        //recipesArrayList.clear();
+        recipesArrayList.clear();
         downloadFromInternet();
     }
 
