@@ -58,7 +58,6 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(mContext, "the position clicked is: ", Toast.LENGTH_LONG).show();
             }
         });
     }

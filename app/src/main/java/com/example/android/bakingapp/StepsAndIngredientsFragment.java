@@ -51,21 +51,15 @@ public class StepsAndIngredientsFragment extends Fragment {
         ingredientsRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns()));
 
         index = getActivity().getIntent().getExtras().getInt("position");
-
-
         steps = recipesArrayList.get(index).getSteps();
         ingredients = recipesArrayList.get(index).getIngredients();
-
+        Log.v("Ing", ingredients.size()+"");
         mIngredientsAdapter = new IngredientsAdapter(getActivity() , ingredients);
         ingredientsRecyclerView.setAdapter(mIngredientsAdapter);
 
         mStepsAdapter = new StepsAdapter(getActivity() , steps);
         stepsRecyclerView.setAdapter(mStepsAdapter);
-
-        //mStepsAdapter.notifyDataSetChanged();
-        //mIngredientsAdapter.notifyDataSetChanged();
         Log.v("index: " , index +" _ "+ steps.size());
-
         return rootView;
     }
 

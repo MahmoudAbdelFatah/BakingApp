@@ -10,16 +10,11 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     public static boolean mTwoPane=false;
     public static ArrayList<Recipes> recipesArrayList;
-    //public static ArrayList<Ingredients> ingredientsArrayList;
-    //public static ArrayList<Steps> stepsArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recipesArrayList = new ArrayList<>();
-        //ingredientsArrayList = new ArrayList<>();
-        //stepsArrayList = new ArrayList<>();
         if (savedInstanceState == null) {
             if (findViewById(R.id.recipe_container_pane) != null) {
                 mTwoPane = true;

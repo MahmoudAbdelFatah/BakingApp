@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.android.bakingapp.R;
 import com.example.android.bakingapp.StepsDetailsActivity;
@@ -27,14 +26,12 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.ViewHolder> 
     private Context mContext;
     private ArrayList<Steps> mSteps;
 
-
     public StepsAdapter(Context context, ArrayList<Steps> steps) {
         this.mSteps = steps;
         mContext = context;
         Log.v("adapterSteps", "steps contractor : " + mSteps.size());
         Log.v("sizeSteps", steps.size() +"");
     }
-
 
     @Override
     public StepsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -54,9 +51,7 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(StepsAdapter.ViewHolder viewHolder, final int position) {
         Log.v("ViewHolder", "steps contractor");
-
         final Steps steps =mSteps.get(position);
-
         viewHolder.txtDescription.setText(steps.getShortDescription());
         Log.v("steps adapter", "item1 : " + steps.getShortDescription());
 
@@ -66,10 +61,8 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.ViewHolder> 
                 Intent intent = new Intent(mContext, StepsDetailsActivity.class);
                 intent.putExtra("position", position);
                 mContext.startActivity(intent);
-                Toast.makeText(mContext, "the position clicked is: " + position, Toast.LENGTH_LONG).show();
             }
         });
-
     }
 
     @Override

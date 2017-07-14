@@ -14,7 +14,6 @@ public class Recipes {
     private String image;
 
     public Recipes() {
-        //this.name = recipesJson.getAsString("name");
     }
 
     public String getName() {

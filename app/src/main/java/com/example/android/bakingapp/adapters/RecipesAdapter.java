@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.android.bakingapp.R;
 import com.example.android.bakingapp.StepsAndIngredientsActivity;
@@ -24,10 +23,8 @@ import java.util.ArrayList;
 
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHolder> {
 
-
     private ArrayList<Recipes> mRecipes;
     private Context mContext;
-    //private OnItemClickListener mOnItemClickListener;
 
     public RecipesAdapter(Context context, ArrayList<Recipes> recipesArrayList) {
         this.mRecipes = recipesArrayList;
@@ -53,27 +50,17 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         // Get the data model based on position
         final Recipes recipes =mRecipes.get(position);
-
-        //Download image using picasso library
-        /*if(recipes.getImage()!="") {
-            Picasso.with(mContext).load(recipes.getImage())
-                    .into(viewHolder.imageView);
-        }*/
-
         viewHolder.txtName.setText(recipes.getName());
         viewHolder.txtServings.setText(recipes.getServings());
         Log.v("check", "cons3 : " + recipes.getName());
         Log.v("check", "cons4 : " + recipes.getServings());
-
-
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, StepsAndIngredientsActivity.class);
                 intent.putExtra("position", position);
                 mContext.startActivity(intent);
-                //MainActivity.mPosition=position;
-                Toast.makeText(mContext, "the position clicked is: "+ position, Toast.LENGTH_LONG).show();
+                //Toast.makeText(mContext, "the position clicked is: "+ position, Toast.LENGTH_LONG).show();
             }
         });
 

@@ -26,9 +26,11 @@ public class Steps {
     public String getVideoURL() {
         return videoURL;
     }
+
     public String getThumbnailURL() {
         return thumbnailURL;
     }
+
     public int getId() {
         return id;
     }
