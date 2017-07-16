@@ -68,7 +68,8 @@ public class RecipesFragment extends Fragment {
     public void onStart() {
         super.onStart();
         Log.v("start", "hello from start");
-        recipesArrayList.clear();
+        if(recipesArrayList!=null)
+            recipesArrayList.clear();
         downloadFromInternet();
     }
 
@@ -156,9 +157,11 @@ public class RecipesFragment extends Fragment {
                                 recipesArrayList.add(recipes);
                             }
                         }
-                        Log.i("test", "" + recipesArrayList.size());
-                        Log.i("test", "" + stepsArrayList.size());
-                        Log.i("test", "" + ingredientsArrayList.size());
+                        if(recipesArrayList!= null) {
+                            Log.i("test", "" + recipesArrayList.size());
+                            Log.i("test", "" + stepsArrayList.size());
+                            Log.i("test", "" + ingredientsArrayList.size());
+                        }
                         mRecipesAdapter = new RecipesAdapter(getActivity() , recipesArrayList);
                         mRecyclerView.setAdapter(mRecipesAdapter);
                     }

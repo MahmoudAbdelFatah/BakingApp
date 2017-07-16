@@ -231,6 +231,14 @@ public class StepsDetailsFragment extends Fragment implements ExoPlayer.EventLis
     }
 
     @Override
+    public void onStop() {
+        super.onStop();
+        if (Util.SDK_INT > 23) {
+            releasePlayer();
+        }
+    }
+
+    @Override
     public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
 
     }

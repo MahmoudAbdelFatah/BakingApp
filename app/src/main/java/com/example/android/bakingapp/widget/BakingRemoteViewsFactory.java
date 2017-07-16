@@ -51,7 +51,7 @@ public class BakingRemoteViewsFactory implements RemoteViewsService.RemoteViewsF
 
     @Override
     public int getCount() {
-        return recipesArrayList.size();
+        return 1;
     }
 
     @Override
@@ -59,10 +59,17 @@ public class BakingRemoteViewsFactory implements RemoteViewsService.RemoteViewsF
 
         RemoteViews rv = new RemoteViews(mContext.getPackageName(), R.layout.baking_widget_list_item);
 
-        Log.v("viewWidget" , recipesArrayList.size()+"");
-        for (int i=0;i<recipesArrayList.size();i++){
-            rv.setTextViewText(R.id.name, recipesArrayList.get(position).getName());
-            rv.setTextViewText(R.id.servings, recipesArrayList.get(position).getServings());
+        rv.setTextViewText(R.id.name, recipesArrayList.get(position).getName());
+        rv.setTextViewText(R.id.servings, recipesArrayList.get(position).getServings());
+        Log.v("sizeOfRec", recipesArrayList.size()+"");
+        Log.v("sizeInView", recipesArrayList.get(position).getIngredients().size()+"");
+        for (int i=0;i<recipesArrayList.get(position).getIngredients().size();i++){
+            RemoteViews  remoteViews= new RemoteViews(mContext.getPackageName(), R.layout.item_ingredient);
+            Log.v("measureInView", recipesArrayList.get(position).getIngredients().get(i).getMeasure());
+            remoteViews.setTextViewText(R.id.measure,recipesArrayList.get(position).getIngredients().get(i).getMeasure());
+            remoteViews.setTextViewText(R.id.ingredient_name,recipesArrayList.get(position).getIngredients().get(i).getIngredient());
+            remoteViews.setTextViewText(R.id.measure,recipesArrayList.get(position).getIngredients().get(i).getMeasure());
+            rv.addView(R.id.ingredient_list,remoteViews);
         }
 
         Intent intent = new Intent();
@@ -78,7 +85,7 @@ public class BakingRemoteViewsFactory implements RemoteViewsService.RemoteViewsF
 
     @Override
     public int getViewTypeCount() {
-        return 3;
+        return 1;
     }
 
     @Override
@@ -126,6 +133,7 @@ public class BakingRemoteViewsFactory implements RemoteViewsService.RemoteViewsF
                                     tmp=ingredientJsonArray.get(j).getAsJsonObject().get("ingredient").toString();
                                     tmp = tmp.substring(1, tmp.length()-1);
                                     ingredients.setIngredient(tmp);
+                                    ingredientsArrayList.add(ingredients);
                                 }
                                 recipes.setIngredients(ingredientsArrayList);
                                 JsonArray stepsJsonArray = (JsonArray) result.get(i).getAsJsonObject().get("steps");

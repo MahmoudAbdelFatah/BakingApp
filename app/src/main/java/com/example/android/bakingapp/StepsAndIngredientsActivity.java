@@ -11,6 +11,8 @@ public class StepsAndIngredientsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_steps_and_ingredients);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         if (savedInstanceState == null) {
             if(mTwoPane) {
                 getSupportFragmentManager().beginTransaction()

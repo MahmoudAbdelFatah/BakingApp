@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.android.bakingapp.R;
 import com.example.android.bakingapp.StepsAndIngredientsActivity;
 import com.example.android.bakingapp.data.Recipes;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -52,6 +53,9 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
         final Recipes recipes =mRecipes.get(position);
         viewHolder.txtName.setText(recipes.getName());
         viewHolder.txtServings.setText(recipes.getServings());
+        if(recipes.getImage()!= null) {
+            Picasso.with(mContext).load(recipes.getImage()).into(viewHolder.imageView);
+        }
         Log.v("check", "cons3 : " + recipes.getName());
         Log.v("check", "cons4 : " + recipes.getServings());
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {

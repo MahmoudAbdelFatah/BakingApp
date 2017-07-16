@@ -10,7 +10,6 @@ import android.widget.RemoteViews;
 
 import com.example.android.bakingapp.MainActivity;
 import com.example.android.bakingapp.R;
-import com.example.android.bakingapp.StepsAndIngredientsActivity;
 
 /**
  * Created by Mahmoud on 7/5/2017.
@@ -28,9 +27,6 @@ public class BakingWidgetProvider extends AppWidgetProvider {
 
             Intent intent = new Intent(context, BakingRemoteViewsService.class);
             views.setRemoteAdapter(R.id.widgetListView, intent);
-            Intent clickIntent = new Intent(context, StepsAndIngredientsActivity.class);
-            PendingIntent clickPendingIntentTemplate = PendingIntent.getActivity(context, 0, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-            views.setPendingIntentTemplate(R.id.widgetListView, clickPendingIntentTemplate);
             appWidgetManager.updateAppWidget(appWidgetId, views);
         }
     }

@@ -51,6 +51,7 @@ public class StepsAndIngredientsFragment extends Fragment {
         ingredientsRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns()));
 
         index = getActivity().getIntent().getExtras().getInt("position");
+        getActivity().setTitle(recipesArrayList.get(index).getName());
         steps = recipesArrayList.get(index).getSteps();
         ingredients = recipesArrayList.get(index).getIngredients();
         Log.v("Ing", ingredients.size()+"");
