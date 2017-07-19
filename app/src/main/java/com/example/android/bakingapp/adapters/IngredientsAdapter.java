@@ -26,9 +26,6 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
     public IngredientsAdapter(Context context, ArrayList<Ingredients> ingredients) {
         this.mIngredients = ingredients;
         mContext = context;
-        Log.v("adapter", "Ingredients contractor : " + mIngredients.size());
-        Log.v("sizeIngredients: ", ingredients.size() +"");
-        Log.v("test2", ingredients.get(0).getQuantity());
     }
     @Override
     public IngredientsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -49,11 +46,6 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
         viewHolder.txtName.setText(ingredients.getIngredient());
         viewHolder.txtMeasure.setText(ingredients.getMeasure());
         viewHolder.txtQuantity.setText(ingredients.getQuantity());
-
-        Log.v("Adapter1", "item1 : " + ingredients.getIngredient());
-        Log.v("ingredients Adapter", "item2 : " + ingredients.getMeasure());
-        Log.v("ingredients Adapter", "item3 : " + ingredients.getQuantity());
-
 
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override

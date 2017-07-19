@@ -30,8 +30,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
     public RecipesAdapter(Context context, ArrayList<Recipes> recipesArrayList) {
         this.mRecipes = recipesArrayList;
         mContext = context;
-        Log.v("adapter", "recipes constractor");
-        Log.v("size", mRecipes.size()+"000");
     }
 
     @Override
@@ -56,8 +54,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
         if(recipes.getImage()!= null) {
             Picasso.with(mContext).load(recipes.getImage()).into(viewHolder.imageView);
         }
-        Log.v("check", "cons3 : " + recipes.getName());
-        Log.v("check", "cons4 : " + recipes.getServings());
+
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

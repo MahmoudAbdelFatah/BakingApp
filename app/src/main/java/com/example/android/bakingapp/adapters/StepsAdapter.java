@@ -53,7 +53,6 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.ViewHolder> 
         Log.v("ViewHolder", "steps contractor");
         final Steps steps =mSteps.get(position);
         viewHolder.txtDescription.setText(steps.getShortDescription());
-        Log.v("steps adapter", "item1 : " + steps.getShortDescription());
 
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
