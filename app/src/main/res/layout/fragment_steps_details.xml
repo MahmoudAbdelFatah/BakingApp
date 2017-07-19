@@ -16,6 +16,12 @@
             android:id="@+id/playerView"
             android:layout_width="match_parent"
             android:layout_height="250dp" />
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="8dp"
+            android:id="@+id/stepThumbnail"
+            android:visibility="gone"
+            android:src="@mipmap/ic_launcher"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"

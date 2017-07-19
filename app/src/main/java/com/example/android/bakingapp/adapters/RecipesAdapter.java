@@ -61,10 +61,10 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, StepsAndIngredientsActivity.class);
-                intent.putExtra("position", position);
-                mContext.startActivity(intent);
-                //Toast.makeText(mContext, "the position clicked is: "+ position, Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(mContext, StepsAndIngredientsActivity.class);
+            intent.putExtra("position", position);
+            mContext.startActivity(intent);
+            //Toast.makeText(mContext, "the position clicked is: "+ position, Toast.LENGTH_LONG).show();
             }
         });
 

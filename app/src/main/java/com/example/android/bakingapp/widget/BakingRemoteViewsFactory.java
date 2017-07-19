@@ -67,7 +67,7 @@ public class BakingRemoteViewsFactory implements RemoteViewsService.RemoteViewsF
             RemoteViews  remoteViews= new RemoteViews(mContext.getPackageName(), R.layout.item_ingredient);
             Log.v("measureInView", recipesArrayList.get(position).getIngredients().get(i).getMeasure());
             remoteViews.setTextViewText(R.id.measure,recipesArrayList.get(position).getIngredients().get(i).getMeasure());
-            remoteViews.setTextViewText(R.id.ingredient_name,recipesArrayList.get(position).getIngredients().get(i).getIngredient());
+            remoteViews.setTextViewText(R.id.ingredient,recipesArrayList.get(position).getIngredients().get(i).getIngredient());
             remoteViews.setTextViewText(R.id.measure,recipesArrayList.get(position).getIngredients().get(i).getMeasure());
             rv.addView(R.id.ingredient_list,remoteViews);
         }
@@ -111,10 +111,12 @@ public class BakingRemoteViewsFactory implements RemoteViewsService.RemoteViewsF
                     public void onCompleted(Exception e, JsonArray result) {
                         if (e == null) {
                             recipesArrayList = new ArrayList<>();
+                            ingredientsArrayList = new ArrayList<Ingredients>();
+                            stepsArrayList = new ArrayList<Steps>();
                             for(int i=0; i<result.size(); i++) {
                                 recipes = new Recipes();
-                                ingredientsArrayList = new ArrayList<Ingredients>();
-                                stepsArrayList = new ArrayList<Steps>();
+                                ingredientsArrayList.clear();
+                                stepsArrayList.clear();
                                 tmp = result.get(i).getAsJsonObject().get("name").toString();
                                 tmp = tmp.substring(1, tmp.length()-1);
                                 recipes.setName(tmp);

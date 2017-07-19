@@ -19,14 +19,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quantity : "
-            android:textColor="@color/aqua"
-            android:textSize="18sp" />
-
         <TextView
             android:id="@+id/quantity"
             android:layout_width="wrap_content"
@@ -41,7 +33,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="G"
             android:textColor="@android:color/holo_orange_light"
             android:textSize="18sp"
             android:textStyle="bold" />

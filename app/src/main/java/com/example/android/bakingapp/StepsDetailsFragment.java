@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.bakingapp.data.Steps;
@@ -32,6 +33,7 @@ import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -53,8 +55,9 @@ public class StepsDetailsFragment extends Fragment implements ExoPlayer.EventLis
     private PlaybackStateCompat.Builder mStateBuilder;
     private static long position = 0;
     private int mIndex=0;
-    TextView longDescription;
-    Button prev, next;
+    private TextView longDescription;
+    private Button prev, next;
+    private ImageView stepThumbnail;
     private ArrayList<Steps> steps;
     private static final String TAG = StepsDetailsActivity.class.getSimpleName();
 
@@ -66,7 +69,7 @@ public class StepsDetailsFragment extends Fragment implements ExoPlayer.EventLis
         prev = (Button) rootView.findViewById(R.id.prev);
         next = (Button) rootView.findViewById(R.id.next);
         steps = recipesArrayList.get(index).getSteps();
-
+        stepThumbnail = (ImageView) rootView.findViewById(R.id.stepThumbnail);
         mPlayerView = (SimpleExoPlayerView) rootView.findViewById(playerView);
         initializeMediaSession();
         Log.v("mIndex:" ,+ mIndex +"\n"+ steps.get(mIndex).getVideoURL()+""+"\nindex: "+index);
@@ -109,6 +112,13 @@ public class StepsDetailsFragment extends Fragment implements ExoPlayer.EventLis
             next.setVisibility(View.GONE);
             longDescription.setVisibility(View.GONE);
         }
+        if (!steps.get(mIndex).getThumbnailURL().equals("")) {
+                String url = steps.get(mIndex).getThumbnailURL();
+                if (url != null && !url.equals("")) {
+                    Picasso.with(getContext()).load(url).into(stepThumbnail);
+                    stepThumbnail.setVisibility(View.VISIBLE);
+                }
+            }
 
         return rootView;
     }
@@ -207,9 +217,11 @@ public class StepsDetailsFragment extends Fragment implements ExoPlayer.EventLis
     }
 
     private void releasePlayer() {
-        mExoPlayer.stop();
-        mExoPlayer.release();
-        mExoPlayer = null;
+        if (mExoPlayer!=null) {
+            mExoPlayer.stop();
+            mExoPlayer.release();
+            mExoPlayer = null;
+        }
     }
 
     @Override
