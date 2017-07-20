@@ -45,7 +45,7 @@ public class StepsAndIngredientsFragment extends Fragment {
         Log.v("create1", "hello");
         View rootView = inflater.inflate(R.layout.fragment_steps_and_ingredients , container, false);
         stepsRecyclerView = (RecyclerView) rootView.findViewById(R.id.steps_recycler_view);
-        stepsRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns()));
+        stepsRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
 
         ingredientsRecyclerView = (RecyclerView) rootView.findViewById(R.id.ingredients_recycler_view);
         ingredientsRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns()));
