@@ -21,10 +21,11 @@ public class StepsAndIngredientsActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction()
                         .add(R.id.steps_and_ingredients_container_pane, new StepsDetailsFragment())
                         .commit();
+            } else {
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.steps_and_ingredients_container, new StepsAndIngredientsFragment())
+                        .commit();
             }
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.steps_and_ingredients_container, new StepsAndIngredientsFragment())
-                    .commit();
         } else {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.steps_and_ingredients_container, new StepsAndIngredientsFragment())
