@@ -158,12 +158,9 @@ public class RecipesFragment extends Fragment {
                             }
                         }
                         if(recipesArrayList!= null) {
-                            Log.i("test", "" + recipesArrayList.size());
-                            Log.i("test", "" + stepsArrayList.size());
-                            Log.i("test", "" + ingredientsArrayList.size());
+                            mRecipesAdapter = new RecipesAdapter(getActivity() , recipesArrayList);
+                            mRecyclerView.setAdapter(mRecipesAdapter);
                         }
-                        mRecipesAdapter = new RecipesAdapter(getActivity() , recipesArrayList);
-                        mRecyclerView.setAdapter(mRecipesAdapter);
                     }
                 });
     }
